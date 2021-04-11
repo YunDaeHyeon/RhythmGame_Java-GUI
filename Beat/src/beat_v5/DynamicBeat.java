@@ -29,7 +29,7 @@ public class DynamicBeat extends JFrame {
 	private ImageIcon quitButtoinEnteredImage = new ImageIcon(Main.class.getResource("../images/quitButtonEntered.png")); //종료하기 버튼 - 이벤트
 	
 	// introBackground 초기화 - 배경화면 지정
-	private Image introBackground = new ImageIcon(Main.class.getResource("../images/IntroBackground.jpg")).getImage();
+	private Image Background = new ImageIcon(Main.class.getResource("../images/introBackground.jpg")).getImage();
 	private JLabel menuBar = new JLabel(new ImageIcon(Main.class.getResource("../images/menuBar.png")));
 
 	//메뉴바 종료버튼
@@ -107,6 +107,9 @@ public class DynamicBeat extends JFrame {
 //				Music buttonEntedMusic = new Music("buttonPressedMusic.mp3",false);
 //				buttonEntedMusic.start();
 				// 게임 시작 이벤트
+				startButton.setVisible(false); //시작 버튼 투명하게
+				quitButton.setVisible(false); //종료 버튼 투명하게
+				Background = new ImageIcon(Main.class.getResource("../images/mainBackground.jpg")).getImage(); //이미지를 mainBackground로 변경 후, 그려주기
 			}
 		});
 		add(startButton);
@@ -178,7 +181,7 @@ public class DynamicBeat extends JFrame {
 
 	// 화면에 그려주기
 	public void screenDraw(Graphics g) {
-		g.drawImage(introBackground, 0, 0, null); // introBackground 0,0 위치에 그려라
+		g.drawImage(Background, 0, 0, null); // introBackground 0,0 위치에 그려라
 		paintComponents(g); //paintComponets는 항상 고정되어있는 이미지를 말함.
 		this.repaint(); // paint 메소드 불러오기
 	}
